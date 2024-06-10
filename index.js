@@ -20,6 +20,9 @@ let p1Score = 0;
 let p2Score = 0;
 
 function updateScore() {
+  const score = document.querySelector(".score")
+
+  score.textContent = `${p1Score} - ${p2Score}`
   return `Player 1 ${p1Score} - ${p2Score} Player 2`;
 }
 
@@ -126,15 +129,14 @@ const startGame = function() {
 
 function clickHandlerBoard() {
   const squares = document.querySelectorAll(".boardsquare")
-
   const newGameButton = document.querySelector(".newgame");
   const resetGameButton = document.querySelector(".resetgame");
 
-  newGameButton.addEventListener('click', event => {
+  newGameButton.addEventListener('click', () => {
     startGame();
   })
 
-  resetGameButton.addEventListener('click', event => {
+  resetGameButton.addEventListener('click', () => {
     p1Score = 0;
     p2Score = 0;
     startGame();
