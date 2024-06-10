@@ -124,6 +124,38 @@ const startGame = function() {
 
 }
 
+function clickHandlerBoard() {
+  const squares = document.querySelectorAll(".boardsquare")
+
+  const newGameButton = document.querySelector(".newgame");
+  const resetGameButton = document.querySelector(".resetgame");
+
+  newGameButton.addEventListener('click', event => {
+    startGame();
+  })
+
+  resetGameButton.addEventListener('click', event => {
+    p1Score = 0;
+    p2Score = 0;
+    startGame();
+  })
+
+  squares.forEach(box => {
+    box.addEventListener('click' , handleSquareClick)
+  });
+
+  function handleSquareClick(event) {
+    const square = event.target;
+    console.log(`Square ${square.id} clicked`)
+  }
+};
+
+
+
+
+
+clickHandlerBoard();
+
 console.log(`Type "startGame()" to initiate the game`)
 
 

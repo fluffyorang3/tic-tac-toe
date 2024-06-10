@@ -4,9 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script src="index.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="index.js" defer></script>
 </head>
 <body>
-  
+  <div class="container">
+    <header>
+      <h1>Tic Tac Toe Game</h1>
+    </header>
+    <main>
+      <div class="scoreboard">
+        <p class="playerOne">Player 1</p>
+        <p class="score">0 - 2</p>
+        <p clas="playerTwo">Player 2</p>
+      </div>
+      <div class="gameboard">
+        <div class="boardsquare" id="square1">X</div>
+        <div class="boardsquare" id="square2">O</div>
+        <div class="boardsquare" id="square3">X</div>
+        <div class="boardsquare" id="square4">X</div>
+        <div class="boardsquare" id="square5">O</div>
+        <div class="boardsquare" id="square6">X</div>
+        <div class="boardsquare" id="square7">O</div>
+        <div class="boardsquare" id="square8">O</div>
+        <div class="boardsquare" id="square9">X</div>
+      </div>
+      <div class="buttons">
+        <button class="newgame">New Game</button>
+        <button class="resetgame">Reset Game</button>
+      </div>
+    </main>
+    <footer></footer>
+
+  </div>
 </body>
 </html>
