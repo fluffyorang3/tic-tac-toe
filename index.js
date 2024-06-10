@@ -1,4 +1,4 @@
-const board = [[0,0,0],[0,0,0],[0,0,0]]
+let board = [[0,0,0],[0,0,0],[0,0,0]]
 
 console.log(board)
 
@@ -114,7 +114,19 @@ function gameFlow() {
   }
 }
 
-gameFlow()
+const startGame = function() {
+  p1Wins = false;
+  p2Wins = false;
+  board = [[0,0,0],[0,0,0],[0,0,0]]
+  console.log(` ${board[0]} \n ${board[1]} \n ${board[2]}`)
+  
+  return gameFlow();
+
+}
+
+console.log(`Type "startGame()" to initiate the game`)
+
+
 
 
 
