@@ -122,7 +122,7 @@ const startGame = function() {
   p2Wins = false;
   board = [[0,0,0],[0,0,0],[0,0,0]]
   console.log(` ${board[0]} \n ${board[1]} \n ${board[2]}`)
-  
+
   return gameFlow();
 
 }
@@ -139,27 +139,23 @@ function clickHandlerBoard() {
   resetGameButton.addEventListener('click', () => {
     p1Score = 0;
     p2Score = 0;
+    updateScore()
     startGame();
   })
 
-  squares.forEach(box => {
-    box.addEventListener('click' , handleSquareClick)
-  });
+  squares.forEach((square) => {
+    square.addEventListener('click', () => {
+      console.log(square.id);
+    })
+  })
 
-  function handleSquareClick(event) {
-    const square = event.target;
-    console.log(`Square ${square.id} clicked`)
-  }
 };
 
+clickHandlerBoard()
 
 
-
-
-clickHandlerBoard();
 
 console.log(`Type "startGame()" to initiate the game`)
-
 
 
 
