@@ -16,6 +16,13 @@ const checking = checkWin(board)
 let p1Wins = false;
 let p2Wins = false;
 
+let p1Score = 0;
+let p2Score = 0;
+
+function updateScore() {
+  return `Player 1 ${p1Score} - ${p2Score} Player 2`;
+}
+
 function checkWin(board) {
 
   
@@ -23,44 +30,60 @@ function checkWin(board) {
 
   for (let i = 0; i < 3; i++){
     if (board[i][0] + board[i][1] + board[i][2] === 3) {
-      return p1Wins = true;
+      p1Score++;
+      p1Wins = true;
+      return;
     }
   }
   
   for (let j = 0; j < 3; j++){
     if (board[0][j] + board[1][j] + board[2][j] === 3) {
-      return p1Wins = true;
+      p1Score++;
+      p1Wins = true;
+      return;
     }
   }
 
   if (board[0][0] + board[1][1] + board[2][2] === 3) {
-    return p1Wins =  true;
+    p1Score++;
+    p1Wins = true;
+      return;
   }
 
   if (board[2][0] + board[1][1] + board[0][2] === 3) {
-    return p1Wins = true;
+    p1Score++;
+    p1Wins = true;
+    return;
   }
   
   //Player 2 Logic
 
   for (let i = 0; i < 3; i++){
     if (board[i][0] + board[i][1] + board[i][2] === -3) {
-      return p2Wins =true;
+      p2Score++;
+      p2Wins = true;
+      return;
     }
   }
   
   for (let j = 0; j < 3; j++){
     if (board[0][j] + board[1][j] + board[2][j] === -3) {
-      return p2Wins = true;
+      p2Score++;
+      p2Wins = true;
+      return;
     }
   }
 
   if (board[0][0] + board[1][1] + board[2][2] === -3) {
-    return p2Wins = true;
+    p2Score++;
+    p2Wins = true;
+    return;
   }
 
   if (board[2][0] + board[1][1] + board[0][2] === -3) {
-    return p2Wins = true;
+    p2Score++;
+    p2Wins = true;
+    return;
   }
 }
 
@@ -84,8 +107,10 @@ function gameFlow() {
 
   if (p1Wins === true) {
     console.log("Player 1 has won!")
+    console.log(updateScore());
   } else if (p2Wins === true) {
     console.log("Player 2 has won!")
+    console.log(updateScore())
   }
 }
 
