@@ -114,11 +114,11 @@ function checkWin(board) {
   }
 } 
 
-function move(row,column) {
+function move() {
   turnAnnouncer();
   updateScore()
-  //let row = prompt("Enter your row")
-  //let column = prompt("Enter your column")
+  let row = prompt("Enter your row")
+  let column = prompt("Enter your column")
 
   turnAnnouncer();
   boardChanger(row,column,x);
@@ -181,7 +181,7 @@ function clickHandlerBoard() {
     })
   })
 
-  square1.addEventListener('click', () => { 
+  /*square1.addEventListener('click', () => { 
     move(0,0)
   })
   square2.addEventListener('click', () => { 
@@ -207,7 +207,7 @@ function clickHandlerBoard() {
   })
   square9.addEventListener('click', () => { 
     move(2,2)
-  })
+  })*/
 };
 
 clickHandlerBoard()
@@ -215,7 +215,6 @@ clickHandlerBoard()
 
 
 console.log(`Type "startGame()" to initiate the game`)
-
 
 
 
