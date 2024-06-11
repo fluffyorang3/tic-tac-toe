@@ -1,6 +1,31 @@
 let board = [[0,0,0],[0,0,0],[0,0,0]]
 
+let x = 1;
+
+function turnChanger() {
+  x = -x;
+  return x;
+}
+
+console.log(x)
+
 console.log(board)
+
+function turnAnnouncer() {
+  if(x === 1) {
+    console.log("Player 1 turn")
+  } else {
+    console.log("Player 2 turn")
+  }
+}
+
+function checkDraw() {
+  if(board.flat().includes(0) === true) {
+    return;
+  } else {
+    console.log("This is a draw")
+  }
+}
 
 function boardChanger(row,column,sign) {
   
@@ -11,7 +36,6 @@ function boardChanger(row,column,sign) {
   }
 }
 
-const checking = checkWin(board)
 
 let p1Wins = false;
 let p2Wins = false;
@@ -88,20 +112,27 @@ function checkWin(board) {
     p2Wins = true;
     return;
   }
-}
+} 
 
-function move() {
-  let row = prompt("Enter your row")
-  let column = prompt("Enter your column")
-  let sign = parseInt(prompt("Enter your sign"));
+function move(row,column) {
+  turnAnnouncer();
+  updateScore()
+  //let row = prompt("Enter your row")
+  //let column = prompt("Enter your column")
 
-  boardChanger(row,column,sign);
+  turnAnnouncer();
+  boardChanger(row,column,x);
+  turnChanger();
+  checkDraw();
 
   console.log(` ${board[0]} \n ${board[1]} \n ${board[2]}`)
+
+
 }
 
 function gameFlow() {
   
+
   while (p1Wins === false && p2Wins === false) {
     move()
     checkWin(board)
@@ -123,7 +154,8 @@ const startGame = function() {
   board = [[0,0,0],[0,0,0],[0,0,0]]
   console.log(` ${board[0]} \n ${board[1]} \n ${board[2]}`)
 
-  return gameFlow();
+  clickHandlerBoard()
+  gameFlow();
 
 }
 
@@ -149,6 +181,33 @@ function clickHandlerBoard() {
     })
   })
 
+  square1.addEventListener('click', () => { 
+    move(0,0)
+  })
+  square2.addEventListener('click', () => { 
+    move(0,1)
+  })
+  square3.addEventListener('click', () => { 
+    move(0,2)
+  })
+  square4.addEventListener('click', () => { 
+    move(1,0)
+  })
+  square5.addEventListener('click', () => { 
+    move(1,1)
+  })
+  square6.addEventListener('click', () => { 
+    move(1,2)
+  })
+  square7.addEventListener('click', () => { 
+    move(2,0)
+  })
+  square8.addEventListener('click', () => { 
+    move(2,1)
+  })
+  square9.addEventListener('click', () => { 
+    move(2,2)
+  })
 };
 
 clickHandlerBoard()
